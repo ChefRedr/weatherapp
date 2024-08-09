@@ -30,7 +30,7 @@ export default function App() {
   const API_KEY = "e63fee57e5524ff38e615336240808";
 
   async function weatherData(currCity) {
-    // const CURRENT_URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${currCity}`;
+    // const CURRENT_URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${currCity}`;
     const FORECAST_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${currCity}`;
     const response = await fetch(FORECAST_URL);
     const weatherJson = await response.json();
