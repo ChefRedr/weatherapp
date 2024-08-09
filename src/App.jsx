@@ -31,7 +31,7 @@ export default function App() {
 
   async function weatherData(currCity) {
     // const CURRENT_URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${currCity}`;
-    const FORECAST_URL = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${currCity}`;
+    const FORECAST_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${currCity}`;
     const response = await fetch(FORECAST_URL);
     const weatherJson = await response.json();
     console.log(weatherJson);
