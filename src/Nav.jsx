@@ -1,3 +1,4 @@
+import "./index.css"
 import { useEffect, useRef } from "react";
 
 export default function Nav({ time, handleClick, reload }) {

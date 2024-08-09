@@ -1,11 +1,16 @@
-export default function Recap( {location, currentDegrees, weatherCondition, high, low, feelsTemp} ) {
+import "./index.css"
+
+export default function Recap( { recapImg, location, currentDegrees, weatherCondition, high, low, feelsTemp} ) {
     return(
-        <div id="recapData">
-            <p>{location}</p>
-            <p>{currentDegrees}°</p>
-            <p>{weatherCondition}</p>
-            <p>{high}° / {low}°</p>
-            <p>Feels like {feelsTemp}°</p>
+        <div id="recap">
+            <img src={recapImg} alt="" />
+            <div id="recapData">
+                <p id="location">{location}</p>
+                <p id="currentDegrees">{currentDegrees}°</p>
+                <p id="weatherCondition">{weatherCondition}</p>
+                <p id="high-low">{high}° / {low}°</p>
+                <p id="feelsTemp">Feels like {feelsTemp}°</p>
+            </div>
         </div>
     );
 }
