@@ -43,6 +43,10 @@ export default function App() {
   const [humidity, setHumidity] = useState(0);
   const [aqi, setAqi] = useState(0);
   const [uvIndex, setUvIndex] = useState(0);
+  const [windSpeed, setWindSpeed] = useState(0);
+  const [windDirection, setWindDirection] = useState("");
+  const [visibility, setVisibility] = useState(0);
+  const [dewPoint, setDewPoint] = useState(0);
 
   const API_KEY = "e63fee57e5524ff38e615336240808";
 
@@ -74,6 +78,10 @@ export default function App() {
       setHumidity(weatherJson["current"]["humidity"]);
       setAqi(weatherJson["current"]["air_quality"]["us-epa-index"]);
       setUvIndex(weatherJson["current"]["uv"]);
+      setWindSpeed(weatherJson["current"]["wind_mph"]);
+      setWindDirection(weatherJson["current"]["wind_degree"]);
+      setVisibility(weatherJson["forecast"]["forecastday"][0]["day"]["avgvis_miles"]);
+      setDewPoint(weatherJson["current"]["dewpoint_f"])
     }
   }
 
@@ -110,8 +118,13 @@ export default function App() {
         <WeeklyWeather weeklyWeather={weeklyTempArray}/>
         <div className="barStats">
           <BarStat type="🌧 Humidity" value={humidity+"%"}/>
-          <BarStat type="AQI" value={aqi}/>
+          <BarStat type="△ AQI" value={aqi}/>
           <BarStat type="☼ UV Index" value={uvIndex}/>
+        </div>
+        <div className="barStats">
+          <BarStat type="༄ Wind" value={windSpeed} windDirection={windDirection}/>
+          <BarStat type="🌡Dewpoint" value={dewPoint}/>
+          <BarStat type="◉ Visibility" value={visibility + " miles"}/>
         </div>
       </div>
     </div>

@@ -153,6 +153,7 @@ body {
   flex-direction: row;
   margin: auto;
   justify-content: space-between;
+  margin-bottom: 1em;
 }
 
 .barStat {
@@ -196,6 +197,7 @@ body {
   }
   .barStats {
     flex-direction: column;
+    margin: auto;
   }
   .barStat {
     width: 100%;
