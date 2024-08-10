@@ -1,18 +1,16 @@
 import "./index.css"
-import appIcon from "./assets/appicon.png";
 
 function DailyMetric({ time, weatherImg, temp, rainChance }) {
     return(
         <div id="dailyWeatherMetric">
             <p>{time}</p>
-            <img src={weatherImg} alt="wut" />
+            <img src={weatherImg} alt="weather condition image" />
             <p>{temp}°</p>
             <p>☂{rainChance}%</p>
         </div>
     );
 }
 
-// <div id="dailyWeatherContainer">
 export default function DailyWeather({ dailyWeather }) {
     let dailyMetrics;
     if(dailyWeather.length != 0) {
@@ -25,8 +23,6 @@ export default function DailyWeather({ dailyWeather }) {
                 <DailyMetric key={time} time={time} weatherImg={weatherImg} temp={temp} rainChance={rainChance}/>
             );
         });
-
-        
     }
 
     return(

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Recap from './Recap.jsx';
 import appIcon from "./assets/appicon.png";
 import DailyWeather from "./DailyWeather.jsx"
+import WeeklyWeather from "./WeeklyWeather.jsx"
 
 // Make sure to shout out the API
 
@@ -30,13 +31,13 @@ export default function App() {
   const [dailyHigh, setDailyHigh] = useState("#");
   const [dailyLow, setDailyLow] = useState("#");
   const [feelsLikeTemp, setFeelsLikeTemp] = useState("#");
+  const [weeklyTempArray, setWeeklyTempArray] = useState("");
   const [hourlyTempArray, setHourlyTempArray] = useState("");
 
   const API_KEY = "e63fee57e5524ff38e615336240808";
 
   async function weatherData(currCity) {
-    // const CURRENT_URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${currCity}`;
-    const FORECAST_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${currCity}`;
+    const FORECAST_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${currCity}&days=7`;
     const response = await fetch(FORECAST_URL);
     const weatherJson = await response.json(); 
     console.log(weatherJson);
@@ -54,6 +55,7 @@ export default function App() {
       setDailyLow(weatherJson["forecast"]["forecastday"][0]["day"]["mintemp_f"]);
       setDailyHigh(weatherJson["forecast"]["forecastday"][0]["day"]["maxtemp_f"]);
       setFeelsLikeTemp(weatherJson["current"]["feelslike_f"]);
+      setWeeklyTempArray(weatherJson["forecast"]["forecastday"])
       setHourlyTempArray(weatherJson["forecast"]["forecastday"][0]["hour"]);
     }
   }
@@ -88,6 +90,7 @@ export default function App() {
       <div id="content">
         <Recap recapImg={weatherImg} location={displayCity} currentDegrees={currentTemp} weatherCondition={condition} high={dailyHigh} low={dailyLow} feelsTemp={feelsLikeTemp}/>
         <DailyWeather dailyWeather={hourlyTempArray}/>
+        <WeeklyWeather weeklyWeather={weeklyTempArray}/>
       </div>
     </div>
   );
