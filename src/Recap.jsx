@@ -3,7 +3,7 @@ import "./index.css"
 export default function Recap( { recapImg, location, currentDegrees, weatherCondition, high, low, feelsTemp} ) {
     return(
         <div id="recap">
-            <img src={recapImg} alt="" />
+            <img src={recapImg} alt="Picture of the weather condition" />
             <div id="recapData">
                 <p id="location">{location}</p>
                 <p id="currentDegrees">{currentDegrees}°</p>

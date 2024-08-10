@@ -20,7 +20,7 @@ export default function App() {
   const [updatedTime, setUpdatedTime] = useState("00:00");
   const [city, setCity] = useState("Search City...");
   const [displayCity, setDisplayCity] = useState("Search City...");
-  const [weatherImg, setWeatherImg] = useState("src/assets/appicon.png");
+  const [weatherImg, setWeatherImg] = useState("/assets/appicon.png");
   const [currentTemp, setCurrentTemp] = useState("#");
   const [condition, setCondition] = useState("...");
   const [dailyHigh, setDailyHigh] = useState("#");
@@ -33,7 +33,7 @@ export default function App() {
     // const CURRENT_URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${currCity}`;
     const FORECAST_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${currCity}`;
     const response = await fetch(FORECAST_URL);
-    const weatherJson = await response.json();
+    const weatherJson = await response.json(); 
     console.log(weatherJson);
 
     // Failed to retrieve data

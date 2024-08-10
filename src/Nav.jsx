@@ -36,7 +36,7 @@ export default function Nav({ time, handleClick, reload }) {
     return(
         <nav>
             <div>
-                <img className="zoomHide" id="logo" src="./assets/appicon.png" alt="cloud and sun logo" />
+                <img className="zoomHide" id="logo" src="/assets/appicon.png" alt="cloud and sun logo" />
                 <p className="zoomHide">Weather App</p>
                 <p id="updatedTimeLabel" className="zoomHide">Last Updated: {time}</p>
                 <button id="reloadButton" className="zoomHide" type="button" onClick={reload}>⟳</button>
