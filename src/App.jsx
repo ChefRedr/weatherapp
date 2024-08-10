@@ -3,6 +3,7 @@ import Nav from "./Nav.jsx";
 import { useEffect, useState } from "react";
 import Recap from './Recap.jsx';
 import appIcon from "./assets/appicon.png";
+import DailyWeather from "./DailyWeather.jsx"
 
 // Make sure to shout out the API
 
@@ -18,8 +19,10 @@ function getTime() {
 
 export default function App() {
 
+  const [loadDailyWeather, setLoadDailyWeather] = useState(false);
+
   const [updatedTime, setUpdatedTime] = useState("00:00");
-  const [city, setCity] = useState("Search City...");
+  const [city, setCity] = useState("");
   const [displayCity, setDisplayCity] = useState("Search City...");
   const [weatherImg, setWeatherImg] = useState(appIcon);
   const [currentTemp, setCurrentTemp] = useState("#");
@@ -27,6 +30,7 @@ export default function App() {
   const [dailyHigh, setDailyHigh] = useState("#");
   const [dailyLow, setDailyLow] = useState("#");
   const [feelsLikeTemp, setFeelsLikeTemp] = useState("#");
+  const [hourlyTempArray, setHourlyTempArray] = useState("");
 
   const API_KEY = "e63fee57e5524ff38e615336240808";
 
@@ -42,23 +46,24 @@ export default function App() {
       setDisplayCity("No matching location found");
     }
     else {
+      setWeatherImg(weatherJson["current"]["condition"]["icon"]);
       setCity(weatherJson["location"]["name"]);
       setDisplayCity(weatherJson["location"]["name"]);
-      setWeatherImg(weatherJson["current"]["condition"]["icon"]);
       setCurrentTemp(weatherJson["current"]["temp_f"]);
       setCondition(weatherJson["current"]["condition"]["text"]);
-      setDailyHigh(weatherJson["forecast"]["forecastday"][0]["day"]["maxtemp_f"]);
       setDailyLow(weatherJson["forecast"]["forecastday"][0]["day"]["mintemp_f"]);
+      setDailyHigh(weatherJson["forecast"]["forecastday"][0]["day"]["maxtemp_f"]);
       setFeelsLikeTemp(weatherJson["current"]["feelslike_f"]);
+      setHourlyTempArray(weatherJson["forecast"]["forecastday"][0]["hour"]);
     }
   }
 
   // Fetches API and updates data everytime the city changes
-  // useEffect(()=>{
-  //   if(city) {
-  //     weatherData();
-  //   }
-  // }, [city]);
+  useEffect(()=>{
+    if(city) {
+      console.log(hourlyTempArray);
+    }
+  }, [city]);
 
   function updateCity(newCity) {
     if(newCity != "") {
@@ -82,6 +87,7 @@ export default function App() {
       <Nav time={updatedTime} handleClick={updateCity} reload={reload}/>
       <div id="content">
         <Recap recapImg={weatherImg} location={displayCity} currentDegrees={currentTemp} weatherCondition={condition} high={dailyHigh} low={dailyLow} feelsTemp={feelsLikeTemp}/>
+        <DailyWeather dailyWeather={hourlyTempArray}/>
       </div>
     </div>
   );

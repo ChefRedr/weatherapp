@@ -14,7 +14,7 @@ img {
 }
 
 nav div {
-  background-color: rgba(238, 238, 238, 0.3);
+  background-color: rgba(238, 238, 238, 0.15);
   color: white;
   display: flex;
   flex-direction: row;
@@ -56,7 +56,7 @@ nav div {
 }
 
 body {
-  background-color: skyblue;
+  background-color: rgb(135, 206, 235);
 }
 
 #recap {
@@ -67,7 +67,7 @@ body {
 
 #recap img {
   width: 256px;
-  height: auto;
+  height: 256px;
 }
 
 #recapData {
@@ -93,11 +93,41 @@ body {
   font-size: 24px;
 }
 
+#dailyWeatherContainer {
+  width: 60%;
+  height: 256px;
+  background-color: rgba(100, 170, 200, 0.4);
+  margin: auto;
+  padding: 1%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+#dailyWeatherMetric {
+  font-size: 36px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 12px;
+}
+
 @media (max-width: 600px) {
   .zoomHide {
     display: none;
   }
   #searchCity {
     width: 100%;
+  }
+  #recap img {
+    width: 200px;
+    height: 200px;
+  }
+  #recap {
+    flex-direction: column;
+    align-items: center;
   }
 }
