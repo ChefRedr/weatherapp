@@ -20,7 +20,7 @@ export default function App() {
   const [updatedTime, setUpdatedTime] = useState("00:00");
   const [city, setCity] = useState("Search City...");
   const [displayCity, setDisplayCity] = useState("Search City...");
-  const [weatherImg, setWeatherImg] = useState("/assets/appicon.png");
+  const [weatherImg, setWeatherImg] = useState("./assets/appicon.png");
   const [currentTemp, setCurrentTemp] = useState("#");
   const [condition, setCondition] = useState("...");
   const [dailyHigh, setDailyHigh] = useState("#");
