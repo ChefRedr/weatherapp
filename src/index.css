@@ -61,7 +61,8 @@ body {
 }
 
 #content {
-  margin: 2em 0;
+  margin: 2em auto;
+  width: 60%;
 }
 
 #recap {
@@ -99,7 +100,6 @@ body {
 }
 
 #dailyWeatherContainer {
-  width: 60%;
   height: 256px;
   background-color: rgba(100, 170, 200, 0.4);
   margin: auto;
@@ -123,7 +123,6 @@ body {
 }
 
 #weeklyWeatherContainer {
-  width: 60%;
   min-height: 256px;
   background-color: rgba(100, 170, 200, 0.4);
   margin: auto;
@@ -133,6 +132,7 @@ body {
   flex-direction: column;
   white-space: nowrap;
   overflow-x: auto;
+  margin-bottom: 1em;
 }
 
 #weeklyWeatherMetric {
@@ -146,6 +146,34 @@ body {
 
 .weeklyWeatherRight {
   margin-left: auto;
+}
+
+.barStats {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.barStat {
+  background-color: rgba(100, 170, 200, 0.4);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 26px;
+  padding: 3%;
+  width: 25%;
+}
+
+.barStat .type {
+  margin-bottom: 10px;
+  color: rgb(230, 230, 230);
+}
+
+#rain1, #rain2 {
+  color: rgb(230, 230, 230);
 }
 
 @media (max-width: 650px) {
@@ -165,5 +193,13 @@ body {
   }
   .weeklyWeatherRight {
     margin-left: 1em;
+  }
+  .barStats {
+    flex-direction: column;
+  }
+  .barStat {
+    width: 100%;
+    padding: 2% 0;
+    margin-bottom: 0.5em;
   }
 }

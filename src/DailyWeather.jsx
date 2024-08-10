@@ -6,7 +6,7 @@ function DailyMetric({ time, weatherImg, temp, rainChance }) {
             <p>{time}</p>
             <img src={weatherImg} alt="weather condition image" />
             <p>{temp}°</p>
-            <p>☂{rainChance}%</p>
+            <p id="rain2">☂{rainChance}%</p>
         </div>
     );
 }

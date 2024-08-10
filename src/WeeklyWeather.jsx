@@ -11,7 +11,7 @@ function WeeklyMetric({ date, rainChance, weatherImg, lowTemp, highTemp }) {
     return(
         <div id="weeklyWeatherMetric">
             <p>{date}</p>
-            <p className="weeklyWeatherRight">☂{rainChance}%</p>
+            <p className="weeklyWeatherRight" id="rain1">☂{rainChance}%</p>
             <img className="weeklyWeatherRight" src={weatherImg} alt="weather condition image" />
             <p className="weeklyWeatherRight">{highTemp}° / {lowTemp}°</p>
         </div>
