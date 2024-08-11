@@ -37,10 +37,10 @@ export default function Nav({ time, handleClick, reload }) {
     return(
         <nav>
             <div>
-                <img className="zoomHide" id="logo" src={appIcon} alt="cloud and sun logo" />
-                <p className="zoomHide">Weather App</p>
+                <p id="menuIcon">☰</p>
+                <p className="zoomHide">Weather App API</p>
                 <p id="updatedTimeLabel" className="zoomHide">Last Updated: {time}</p>
-                <button id="reloadButton" className="zoomHide" type="button" onClick={reload}>⟳</button>
+                <button id="reloadButton" className="zoomHide hoverable" type="button" onClick={reload}>⟳</button>
                 <input id="searchCity" type="text" placeholder="🔍︎ Search City" ref={cityInputRef} />
             </div>
         </nav>

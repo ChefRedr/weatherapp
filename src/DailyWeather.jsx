@@ -2,12 +2,12 @@ import "./index.css"
 
 function DailyMetric({ time, weatherImg, temp, rainChance }) {
     return(
-        <div id="dailyWeatherMetric">
+        <section id="dailyWeatherMetric">
             <p>{time}</p>
             <img src={weatherImg} alt="weather condition image" />
             <p>{temp}°</p>
             <p id="rain2">☂{rainChance}%</p>
-        </div>
+        </section>
     );
 }
 

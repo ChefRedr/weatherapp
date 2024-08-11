@@ -1,11 +1,15 @@
 import "./index.css"
 import Nav from "./Nav.jsx";
+import Menu from "./Menu.jsx";
 import { useEffect, useState } from "react";
 import Recap from './Recap.jsx';
 import appIcon from "./assets/appicon.png";
-import DailyWeather from "./DailyWeather.jsx"
-import WeeklyWeather from "./WeeklyWeather.jsx"
-import BarStat from "./BarStat.jsx"
+import DailyWeather from "./DailyWeather.jsx";
+import WeeklyWeather from "./WeeklyWeather.jsx";
+import BarStat from "./BarStat.jsx";
+import Astro from "./Astro.jsx";
+import sunImage from "./assets/sun.png"
+import moonImage from "./assets/moon.png"
 
 // Make sure to shout out the API
 
@@ -48,6 +52,12 @@ export default function App() {
   const [visibility, setVisibility] = useState(0);
   const [dewPoint, setDewPoint] = useState(0);
 
+  // Astro.jsx
+  const [sunriseTime, setSunriseTime] = useState("00:00");
+  const [sunsetTime, setSunsetTime] = useState("00:00");
+  const [moonPhase, setMoonPhase] = useState("...");
+  const [moonIllumination, setMoonIllumination] = useState("...");
+
   const API_KEY = "e63fee57e5524ff38e615336240808";
 
   async function weatherData(currCity) {
@@ -82,6 +92,11 @@ export default function App() {
       setWindDirection(weatherJson["current"]["wind_degree"]);
       setVisibility(weatherJson["forecast"]["forecastday"][0]["day"]["avgvis_miles"]);
       setDewPoint(weatherJson["current"]["dewpoint_f"])
+
+      setSunriseTime(weatherJson["forecast"]["forecastday"][0]["astro"]["sunrise"]);
+      setSunsetTime(weatherJson["forecast"]["forecastday"][0]["astro"]["sunset"]);
+      setMoonPhase(weatherJson["forecast"]["forecastday"][0]["astro"]["moon_phase"]);
+      setMoonIllumination(weatherJson["forecast"]["forecastday"][0]["astro"]["moon_illumination"]);
     }
   }
 
@@ -111,22 +126,25 @@ export default function App() {
 
   return (
     <div>
+      <Menu />
       <Nav time={updatedTime} handleClick={updateCity} reload={reload}/>
-      <div id="content">
+      <main id="content">
         <Recap recapImg={weatherImg} location={displayCity} currentDegrees={currentTemp} weatherCondition={condition} high={dailyHigh} low={dailyLow} feelsTemp={feelsLikeTemp}/>
         <DailyWeather dailyWeather={hourlyTempArray}/>
         <WeeklyWeather weeklyWeather={weeklyTempArray}/>
-        <div className="barStats">
+        <section className="barStats">
           <BarStat type="🌧 Humidity" value={humidity+"%"}/>
           <BarStat type="△ AQI" value={aqi}/>
           <BarStat type="☼ UV Index" value={uvIndex}/>
-        </div>
-        <div className="barStats">
+        </section>
+        <section className="barStats">
           <BarStat type="༄ Wind" value={windSpeed} windDirection={windDirection}/>
           <BarStat type="🌡Dewpoint" value={dewPoint + "°"}/>
           <BarStat type="◉ Visibility" value={visibility + " miles"}/>
-        </div>
-      </div>
+        </section >
+        <Astro img={sunImage} info1={"Sunrise: " + sunriseTime} info2={"Sunset: " + sunsetTime}/>
+        <Astro img={moonImage} info1={"Phase: " + moonPhase} info2={"Light: " + moonIllumination + "%"}/>
+      </main>
     </div>
   );
 
