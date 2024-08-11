@@ -57,7 +57,7 @@ nav div {
 }
 
 body {
-  background-color: rgb(135, 206, 235);
+  background: linear-gradient(to bottom, rgb(145, 216, 245), rgb(115, 186, 215 ));
 }
 
 #content {
@@ -69,6 +69,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  text-align: center;
+  margin-bottom: 1em;
 }
 
 #recap img {
@@ -104,7 +106,7 @@ body {
   background-color: rgba(100, 170, 200, 0.4);
   margin: auto;
   margin-bottom: 1em;
-  padding: 1%;
+  padding: 2%;
   border-radius: 20px;
   display: flex;
   flex-direction: row;
@@ -126,7 +128,7 @@ body {
   min-height: 256px;
   background-color: rgba(100, 170, 200, 0.4);
   margin: auto;
-  padding: 1%;
+  padding: 2%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -141,11 +143,28 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   margin-right: 12px;
 }
 
-.weeklyWeatherRight {
-  margin-left: auto;
+.date {
+  flex: 1;
+  text-align: left;
+}
+
+.rain {
+  flex: 1;
+  margin-left: 1em;
+}
+
+.weatherImg {
+  flex: 1;
+  max-width: 50px;
+}
+
+.temp {
+  flex: 1;
+  text-align: right;
 }
 
 .barStats {
@@ -177,6 +196,22 @@ body {
   color: rgb(230, 230, 230);
 }
 
+@media (max-width: 875px) {
+  #weeklyWeatherContainer {
+    flex-direction: row;
+  }
+  #weeklyWeatherMetric {
+    flex-direction: column;
+    margin-right: 1em;
+  }
+  .rain {
+    margin: 0;
+  }
+  .weatherImg {
+      max-width: 60px;
+  }
+}
+
 @media (max-width: 650px) {
   .zoomHide {
     display: none;
@@ -191,9 +226,7 @@ body {
   #recap {
     flex-direction: column;
     align-items: center;
-  }
-  .weeklyWeatherRight {
-    margin-left: 1em;
+    text-align: center;
   }
   .barStats {
     flex-direction: column;

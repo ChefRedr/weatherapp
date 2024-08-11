@@ -10,10 +10,10 @@ function getDayOfWeek(dateString) {
 function WeeklyMetric({ date, rainChance, weatherImg, lowTemp, highTemp }) {
     return(
         <div id="weeklyWeatherMetric">
-            <p>{date}</p>
-            <p className="weeklyWeatherRight" id="rain1">☂{rainChance}%</p>
-            <img className="weeklyWeatherRight" src={weatherImg} alt="weather condition image" />
-            <p className="weeklyWeatherRight">{highTemp}° / {lowTemp}°</p>
+            <p className="weeklyWeatherComponent date">{date}</p>
+            <p className="weeklyWeatherComponent rain" id="rain1">☂{rainChance}%</p>
+            <img className="weeklyWeatherComponent weatherImg" src={weatherImg} alt="weather condition image" />
+            <p className="weeklyWeatherComponent temp">{highTemp}° / {lowTemp}°</p>
         </div>
     );
 }

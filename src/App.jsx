@@ -123,7 +123,7 @@ export default function App() {
         </div>
         <div className="barStats">
           <BarStat type="༄ Wind" value={windSpeed} windDirection={windDirection}/>
-          <BarStat type="🌡Dewpoint" value={dewPoint}/>
+          <BarStat type="🌡Dewpoint" value={dewPoint + "°"}/>
           <BarStat type="◉ Visibility" value={visibility + " miles"}/>
         </div>
       </div>

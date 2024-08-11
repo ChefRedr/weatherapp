@@ -18,7 +18,7 @@ export default function BarStat({ type, value, windDirection="" }) {
         return(
             <div className="barStat">
                 <p className="type">{type}</p>
-                <p>{value} ({direction})</p>
+                <p>{value} mph ({direction})</p>
             </div>
         );
     }

@@ -8,7 +8,7 @@ export default function Recap( { recapImg, location, currentDegrees, weatherCond
                 <p id="location">{location}</p>
                 <p id="currentDegrees">{currentDegrees}°</p>
                 <p id="weatherCondition">{weatherCondition}</p>
-                <p id="high-low">{low}° / {high}°</p>
+                <p id="high-low">{high}° / {low}°</p>
                 <p id="feelsTemp">Feels like {feelsTemp}°</p>
             </div>
         </div>
