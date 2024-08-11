@@ -145,6 +145,9 @@ export default function App() {
         <Astro img={sunImage} info1={"Sunrise: " + sunriseTime} info2={"Sunset: " + sunsetTime}/>
         <Astro img={moonImage} info1={"Phase: " + moonPhase} info2={"Light: " + moonIllumination + "%"}/>
       </main>
+      <footer>
+        <p>Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a></p>
+      </footer>
     </div>
   );
 

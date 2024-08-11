@@ -1,8 +1,12 @@
-# React + Vite
+# Weather App API
+Faris Eltayib
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full stack weather app built with ReactJS and powered by [WeatherAPI](https://www.weatherapi.com/)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run this application, you can either visit it at https://chefredr.github.io/weatherapp/ or follow the directions below
+- Make sure you have the lastest version of [NodeJS](https://nodejs.org/) and npm installed
+- Download all of the files
+- Extract all files
+- Open the terminal from the /weatherapp/ directory
+- Run this command: npm run dev
+- Open the provided local link

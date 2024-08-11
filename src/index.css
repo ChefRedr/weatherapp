@@ -229,6 +229,12 @@ body {
   height: 128px;
 }
 
+footer {
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
 @media (max-width: 875px) {
   #weeklyWeatherContainer {
     flex-direction: row;
