@@ -1,11 +1,13 @@
 export default function Astro({ img, info1, info2 }) {
     return(
         <section className="astroInfo">
-            <img src={img} alt="astro body" />
-            <div>
+            <figure>
+                <img src={img} alt="astro body" />
+            </figure>
+            <figcaption>
                 <p>{info1}</p>
                 <p>{info2}</p>
-            </div>
+            </figcaption>
         </section>
     );
 }

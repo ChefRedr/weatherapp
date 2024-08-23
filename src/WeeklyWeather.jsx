@@ -25,8 +25,8 @@ export default function WeeklyWeather({ weeklyWeather }) {
             const date = getDayOfWeek(weeklyInfo["date"]);
             const rainChance = weeklyInfo["day"]["daily_chance_of_rain"];
             const weatherImg = weeklyInfo["day"]["condition"]["icon"];
-            const lowTemp = weeklyInfo["day"]["mintemp_f"];
-            const highTemp = weeklyInfo["day"]["maxtemp_f"];
+            const lowTemp = Math.round(weeklyInfo["day"]["mintemp_f"]);
+            const highTemp = Math.round(weeklyInfo["day"]["maxtemp_f"]);
             return(
                 <WeeklyMetric key={date} date={date} rainChance={rainChance} weatherImg={weatherImg} lowTemp={lowTemp} highTemp={highTemp} />
             );
@@ -34,8 +34,8 @@ export default function WeeklyWeather({ weeklyWeather }) {
     }
 
     return(
-        <div id="weeklyWeatherContainer">
+        <section id="weeklyWeatherContainer" tabIndex="0">
             {weeklyMetrics}
-        </div>
+        </section>
     );
 }

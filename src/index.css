@@ -3,16 +3,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-/* Prevent bluriness when scaling up pixeled images */
-img {
-  image-rendering: smooth;
-  -webkit-image-rendering: smooth;
-  -moz-image-rendering: smooth;
-  -ms-image-rendering: smooth;
-  -o-image-rendering: smooth;
-  height: auto;
-}
-
 #menu {
   display: none;
   position: absolute;
@@ -27,6 +17,10 @@ nav div {
   align-items: center;
   font-size: 24px;
   padding: 1%;
+}
+
+nav div h1 {
+  font-size: 24px;
 }
 
 #updatedTimeLabel {
@@ -141,7 +135,7 @@ body {
 }
 
 #weeklyWeatherContainer {
-  min-height: 256px;
+  min-height: 100px;
   background-color: rgba(100, 170, 200, 0.4);
   margin: auto;
   padding: 2%;
@@ -238,6 +232,7 @@ footer {
 @media (max-width: 875px) {
   #weeklyWeatherContainer {
     flex-direction: row;
+    justify-content: center;
   }
   #weeklyWeatherMetric {
     flex-direction: column;

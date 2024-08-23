@@ -7,6 +7,6 @@ To run this application, you can either visit it at https://chefredr.github.io/w
 - Make sure you have the lastest version of [NodeJS](https://nodejs.org/) and npm installed
 - Download all of the files
 - Extract all files
-- Open the terminal from the /weatherapp/ directory
+- Open the terminal from the /weatherapp/ directory(folder)
 - Run this command: npm run dev
 - Open the provided local link

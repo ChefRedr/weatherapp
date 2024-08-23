@@ -11,8 +11,6 @@ import Astro from "./Astro.jsx";
 import sunImage from "./assets/sun.png"
 import moonImage from "./assets/moon.png"
 
-// Make sure to shout out the API
-
 function getTime() {
   const currentDate = new Date();
 
@@ -72,26 +70,24 @@ export default function App() {
     }
     else {
       setCity(weatherJson["location"]["name"]);
-
       setDisplayCity(weatherJson["location"]["name"]);
       setWeatherImg(weatherJson["current"]["condition"]["icon"]);
-      setCurrentTemp(weatherJson["current"]["temp_f"]);
+      setCurrentTemp(Math.round(weatherJson["current"]["temp_f"]));
       setCondition(weatherJson["current"]["condition"]["text"]);
-      setDailyLow(weatherJson["forecast"]["forecastday"][0]["day"]["mintemp_f"]);
-      setDailyHigh(weatherJson["forecast"]["forecastday"][0]["day"]["maxtemp_f"]);
-      setFeelsLikeTemp(weatherJson["current"]["feelslike_f"]);
+      setDailyLow(Math.round(weatherJson["forecast"]["forecastday"][0]["day"]["mintemp_f"]));
+      setDailyHigh(Math.round(weatherJson["forecast"]["forecastday"][0]["day"]["maxtemp_f"]));
+      setFeelsLikeTemp(Math.round(weatherJson["current"]["feelslike_f"]));
 
       setHourlyTempArray(weatherJson["forecast"]["forecastday"][0]["hour"]);
-
       setWeeklyTempArray(weatherJson["forecast"]["forecastday"])
 
       setHumidity(weatherJson["current"]["humidity"]);
       setAqi(weatherJson["current"]["air_quality"]["us-epa-index"]);
       setUvIndex(weatherJson["current"]["uv"]);
       setWindSpeed(weatherJson["current"]["wind_mph"]);
-      setWindDirection(weatherJson["current"]["wind_degree"]);
+      setWindDirection(weatherJson["current"]["wind_dir"]);
       setVisibility(weatherJson["forecast"]["forecastday"][0]["day"]["avgvis_miles"]);
-      setDewPoint(weatherJson["current"]["dewpoint_f"])
+      setDewPoint(Math.round(weatherJson["current"]["dewpoint_f"]));
 
       setSunriseTime(weatherJson["forecast"]["forecastday"][0]["astro"]["sunrise"]);
       setSunsetTime(weatherJson["forecast"]["forecastday"][0]["astro"]["sunset"]);
